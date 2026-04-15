@@ -9,6 +9,8 @@ interface Project {
   stack: string[];
   color: string;
   glowColor: string;
+  isSAE?: boolean;
+  saeDetails?: string;
 }
 
 const projects: Project[] = [
@@ -20,6 +22,8 @@ const projects: Project[] = [
     stack: ['Flutter', 'Dart', 'MySQL'],
     color: 'from-blue-600 to-cyan-600',
     glowColor: 'cyan',
+    isSAE: true,
+    saeDetails: 'SAE - Projet d\'Application Mobile',
   },
   {
     id: 2,
@@ -38,6 +42,8 @@ const projects: Project[] = [
     stack: ['JavaScript', 'SQL', 'Rerun'],
     color: 'from-orange-600 to-red-600',
     glowColor: 'orange',
+    isSAE: true,
+    saeDetails: 'SAE - Réalité Augmentée & Innovation',
   },
 ];
 
@@ -94,12 +100,26 @@ export default function Projects() {
               <div className="relative glass rounded-2xl p-8 h-full border border-indigo-500/20 group-hover:border-indigo-500/50 transition-colors flex flex-col">
                 {/* Title and Color Accent */}
                 <div className="mb-6">
-                  <div
-                    className={`w-12 h-1 rounded-full bg-gradient-to-r ${project.color} mb-4`}
-                  ></div>
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div
+                      className={`w-12 h-1 rounded-full bg-gradient-to-r ${project.color}`}
+                    ></div>
+                    {project.isSAE && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        className="px-3 py-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full text-xs font-bold text-white whitespace-nowrap"
+                      >
+                        📚 Projet Académique
+                      </motion.div>
+                    )}
+                  </div>
                   <h3 className="text-2xl font-bold text-white mb-2">
                     {project.title}
                   </h3>
+                  {project.saeDetails && (
+                    <p className="text-xs text-indigo-300 italic">{project.saeDetails}</p>
+                  )}
                 </div>
 
                 {/* Description */}

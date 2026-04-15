@@ -8,8 +8,10 @@ interface TimelineEvent {
   title: string;
   organization: string;
   description: string;
+  details?: string[];
   type: 'education' | 'experience';
   icon: React.ReactNode;
+  accent?: string;
 }
 
 const events: TimelineEvent[] = [
@@ -23,11 +25,19 @@ const events: TimelineEvent[] = [
   },
   {
     year: '2023-2026',
-    title: 'BUT Informatique',
-    organization: 'IUT Lyon 1 (Bourg-en-Bresse)',
-    description: 'Formation en Informatique — Actuellement en 3e année',
+    title: 'BUT Informatique - Parcours RACDV',
+    organization: 'IUT Lyon 1 - Campus de Bourg-en-Bresse',
+    description:
+      'Réalisation d\'Applications : Conception, Développement, Validation',
+    details: [
+      '🎯 Coloration Mobile & 3D : Spécialisation en interfaces immersives et développement mobile',
+      '📚 Apprentissage par Projet (SAE) : Situations d\'Apprentissage et d\'Évaluation simulant des contraintes réelles',
+      '🔬 Approche Scientifique : Algorithmique avancée, mathématiques, gestion de projet agile',
+      '📊 Actuellement en 3e année avec spécialisation en architecture et conception robuste',
+    ],
     type: 'education',
     icon: <IoSchool className="text-2xl" />,
+    accent: 'blue',
   },
   {
     year: '2024',
@@ -43,8 +53,14 @@ const events: TimelineEvent[] = [
     organization: 'RPC - Alternance',
     description:
       'Développement d\'applications mobiles (Bon\'App Petit, etc.) — Gestion familiale et cantine numérique',
+    details: [
+      '📱 Architecture MVVM avec gestion d\'état (Provider Pattern)',
+      '🔗 API REST (HTTP/JSON) et intégration données en temps réel',
+      '✅ Tests unitaires et validation qualité',
+    ],
     type: 'experience',
     icon: <IoBriefcase className="text-2xl" />,
+    accent: 'purple',
   },
 ];
 
@@ -124,7 +140,19 @@ export default function Experience() {
                     {event.title}
                   </h3>
                   <p className="text-purple-400 text-sm mb-2 font-medium">{event.organization}</p>
-                  <p className="text-gray-300 text-sm leading-relaxed">{event.description}</p>
+                  <p className="text-gray-300 text-sm leading-relaxed mb-3">{event.description}</p>
+
+                  {/* Details List */}
+                  {event.details && (
+                    <ul className="space-y-2 text-xs text-gray-400">
+                      {event.details.map((detail, idx) => (
+                        <li key={idx} className="flex gap-2">
+                          <span className="text-indigo-400">→</span>
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </motion.div>
             ))}

@@ -12,6 +12,7 @@ export default function Navbar() {
     { name: 'Projets', href: '#projects' },
     { name: 'Parcours', href: '#experience' },
     { name: 'Compétences', href: '#skills' },
+    { name: 'Valeurs', href: '#values' },
     { name: 'Contact', href: '#contact' },
   ];
 
