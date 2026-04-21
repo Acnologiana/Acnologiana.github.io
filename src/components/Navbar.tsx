@@ -39,17 +39,9 @@ export default function Navbar() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="glass rounded-2xl max-w-4xl mx-auto px-6 py-4 flex items-center justify-between"
+        className="bg-obsidian rounded-none max-w-4xl mx-auto px-6 py-4 flex items-center justify-center border border-border-dark hover:border-crimson transition-colors"
       >
-        {/* Logo */}
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="font-bold text-xl bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent cursor-pointer"
-        >
-          CL
-        </motion.div>
-
-        {/* Desktop Menu */}
+        {/* Desktop Menu - Centered */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -61,7 +53,7 @@ export default function Navbar() {
               key={item.name}
               variants={itemVariants}
               href={item.href}
-              className="text-sm text-gray-300 hover:text-indigo-400 transition-colors font-medium"
+              className="text-base text-bone hover:text-gold hover:border-b-2 border-b-2 border-b-transparent transition-colors font-medium"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -73,7 +65,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-2xl text-gray-300 hover:text-indigo-400"
+          className="md:hidden text-2xl text-bone hover:text-gold"
         >
           {isOpen ? <IoClose /> : <IoMenu />}
         </button>
@@ -85,14 +77,14 @@ export default function Navbar() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="glass rounded-2xl max-w-4xl mx-auto mt-4 px-6 py-6 flex flex-col gap-4 md:hidden"
+          className="bg-obsidian rounded-none max-w-4xl mx-auto mt-4 px-6 py-6 flex flex-col gap-4 md:hidden border border-border-dark"
         >
           {navItems.map((item) => (
             <motion.a
               key={item.name}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="text-sm text-gray-300 hover:text-indigo-400 transition-colors font-medium py-2"
+              className="text-base text-bone hover:text-gold transition-colors font-medium py-2"
               whileHover={{ x: 8 }}
             >
               {item.name}

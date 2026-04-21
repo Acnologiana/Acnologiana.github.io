@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { BookOpen, Wrench, Home } from 'lucide-react';
 
 export default function About() {
   const containerVariants = {
@@ -19,7 +20,7 @@ export default function About() {
   };
 
   return (
-    <section className="w-full px-6 py-20 bg-gradient-to-b from-transparent to-indigo-500/5">
+    <section className="w-full px-6 py-20 bg-void">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -29,25 +30,29 @@ export default function About() {
       >
         <motion.h2
           variants={itemVariants}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text"
+          className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text font-cinzel"
         >
-          À Propos & Vision
+          À propos de moi
         </motion.h2>
 
         <motion.div
           variants={itemVariants}
-          className="glass rounded-2xl p-8 md:p-12 mb-8 space-y-6 border border-indigo-500/20"
+          className="glass rounded-none p-8 md:p-12 mb-8 space-y-6 border border-border-dark"
         >
-          <p className="text-lg text-gray-300 leading-relaxed">
-            Je suis un développeur passionné par la création de solutions robustes et intelligentes. Mon approche va au-delà du simple "faire fonctionner" — je conçois des architectures durables, je comprends les besoins réels et j'intègre la responsabilité technique dans chaque projet.
+          <p className="text-lg text-bone leading-relaxed">
+            Je suis développeur, actuellement en 3<sup>e</sup> année de BUT Informatique à l'IUT Lyon 1.
           </p>
 
-          <p className="text-lg text-gray-300 leading-relaxed">
-            Actuellement en 3e année de <span className="text-indigo-400 font-semibold">BUT Informatique</span> à l'IUT Lyon 1, je poursuis mes études en alternance chez <span className="text-purple-400 font-semibold">RPC</span>, où je développe des applications mobiles innovantes. Mon objectif : intégrer <span className="text-indigo-400 font-semibold">CPE Lyon</span> pour me spécialiser en <span className="text-purple-400 font-semibold">IA et Robotique Autonome</span>.
+          <p className="text-lg text-bone leading-relaxed">
+            Au départ, je me voyais surtout comme quelqu'un qui code. Mais au fil de mes projets et de mon alternance chez <span className="text-gold font-semibold">RPC</span>, j'ai compris que ce qui m'intéresse vraiment, c'est tout ce qu'il y a autour : comprendre un besoin concret, faire les bons choix techniques et construire quelque chose de fiable.
           </p>
 
-          <p className="text-lg text-gray-300 leading-relaxed">
-            Je crois que la technologie doit être utilisée de manière réfléchie. En apprentissage constant, j'explore comment les systèmes intelligents peuvent faire le pont entre le numérique et le monde réel — qu'il s'agisse d'améliorer la vie quotidienne ou de rendre la technologie plus accessible.
+          <p className="text-lg text-bone leading-relaxed">
+            Travailler sur des applications utilisées au quotidien m'a appris à sortir de la théorie et à prendre en compte de vraies contraintes : utilisateurs, stabilité, organisation du travail.
+          </p>
+
+          <p className="text-lg text-bone leading-relaxed">
+            Aujourd'hui, je suis admis à <span className="text-gold font-semibold">CPE Lyon</span> (sous réserve de trouver une alternance) et je souhaite évoluer vers des domaines comme l'intelligence artificielle et la robotique. J'ai envie d'aller plus loin que le développement pur, et de participer à la conception de systèmes capables d'interagir avec le réel.
           </p>
         </motion.div>
 
@@ -56,17 +61,17 @@ export default function About() {
           className="grid md:grid-cols-3 gap-6"
         >
           {[
-            { title: "Comprendre les besoins", icon: "🎯" },
-            { title: "Concevoir l'architecture", icon: "🏗️" },
-            { title: "Coder avec responsabilité", icon: "⚙️" },
+            { title: "De la théorie à la pratique", icon: <BookOpen className="w-6 h-6" /> },
+            { title: "Faire les bons choix techniques", icon: <Wrench className="w-6 h-6" /> },
+            { title: "Construire durablement", icon: <Home className="w-6 h-6" /> },
           ].map((item, i) => (
             <motion.div
               key={i}
               whileHover={{ y: -8 }}
-              className="glass rounded-xl p-6 text-center border border-indigo-500/20 hover:border-indigo-500/50 transition-colors"
+              className="glass rounded-none p-6 text-center border border-border-dark hover:border-crimson transition-colors"
             >
-              <div className="text-4xl mb-4">{item.icon}</div>
-              <h3 className="text-lg font-semibold text-indigo-400">{item.title}</h3>
+              <div className="text-4xl mb-4 flex justify-center">{item.icon}</div>
+              <h3 className="text-lg font-semibold text-gold font-cinzel">{item.title}</h3>
             </motion.div>
           ))}
         </motion.div>

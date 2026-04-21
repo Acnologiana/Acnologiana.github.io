@@ -43,7 +43,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="w-full px-6 py-20 bg-gradient-to-b from-indigo-500/5 to-transparent"
+      className="w-full px-6 py-20 bg-black"
     >
       <motion.div
         variants={containerVariants}
@@ -54,14 +54,14 @@ export default function Contact() {
       >
         <motion.h2
           variants={itemVariants}
-          className="text-4xl md:text-5xl font-bold mb-8 gradient-text"
+          className="text-4xl md:text-5xl font-bold font-cinzel mb-8 gradient-text"
         >
           Prenons Contact
         </motion.h2>
 
         <motion.p
           variants={itemVariants}
-          className="text-gray-300 text-lg mb-16"
+          className="text-bone text-lg mb-16"
         >
           Vous avez un projet en tête, une question ou simplement envie de discuter ? Je serais ravi d'échanger avec vous.
         </motion.p>
@@ -73,13 +73,13 @@ export default function Contact() {
               variants={itemVariants}
               href={contact.href}
               whileHover={{ scale: 1.05, y: -8 }}
-              className="glass rounded-xl p-8 border border-indigo-500/20 hover:border-indigo-500/50 transition-colors group"
+              className="glass rounded-sm p-8 border border-border-dark hover:border-crimson transition-colors group"
             >
-              <div className="text-indigo-400 mb-4 group-hover:text-purple-400 transition-colors">
+              <div className="text-gold mb-4 group-hover:text-gold transition-colors">
                 {contact.icon}
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">{contact.label}</h3>
-              <p className="text-gray-300 text-sm break-all">{contact.value}</p>
+              <p className="text-bone text-sm break-all">{contact.value}</p>
             </motion.a>
           ))}
         </div>
@@ -89,7 +89,7 @@ export default function Contact() {
           href="mailto:clement.lachize@etud.univ-lyon1.fr"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="inline-block px-10 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full font-semibold text-white hover:shadow-lg hover:shadow-indigo-500/50 transition-all"
+          className="inline-block px-10 py-4 bg-gold rounded-none font-semibold text-black hover:shadow-lg hover:shadow-gold/50 transition-all border border-gold hover:border-crimson"
         >
           M'envoyer un email
         </motion.a>

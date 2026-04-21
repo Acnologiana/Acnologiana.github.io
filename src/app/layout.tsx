@@ -1,9 +1,22 @@
 import type { Metadata } from "next";
+import { Cinzel, Lora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "900"],
+  variable: "--font-cinzel",
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-lora",
+});
+
 export const metadata: Metadata = {
-  title: "Clément Lachize | Développeur Informatique & Futur Ingénieur IA/Robotique",
+  title: "Portfolio Clément LACHIZE",
   description:
     "Portfolio de Clément Lachize — Développeur informatique passionné par l'intelligence artificielle et la robotique. Découvrez mes projets, compétences et parcours.",
   keywords: [
@@ -18,9 +31,12 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Clément Lachize" }],
   openGraph: {
-    title: "Clément Lachize | Développeur Informatique",
+    title: "Portfolio Clément LACHIZE",
     description: "Concevoir des solutions intelligentes pour faire le pont entre le code et le réel.",
     type: "website",
+  },
+  icons: {
+    icon: "/logo/logoCL.png",
   },
 };
 
@@ -30,8 +46,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="dark">
-      <body className="min-h-full flex flex-col bg-grid dark:bg-black">
+    <html lang="fr" className={`dark ${cinzel.variable} ${lora.variable}`}>
+      <body className="min-h-full flex flex-col bg-void dark:bg-void font-lora">
         <Navbar />
         {children}
       </body>

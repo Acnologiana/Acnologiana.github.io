@@ -20,8 +20,8 @@ const projects: Project[] = [
     description:
       'Application d\'aide-mémoire pour personnes atteintes de troubles mnésiques. Propose une gestion complète d\'agenda, notes et listes de cours intégrées.',
     stack: ['Flutter', 'Dart', 'MySQL'],
-    color: 'from-blue-600 to-cyan-600',
-    glowColor: 'cyan',
+    color: 'from-crimson to-gold',
+    glowColor: 'gold',
     isSAE: true,
     saeDetails: 'SAE - Projet d\'Application Mobile',
   },
@@ -31,8 +31,8 @@ const projects: Project[] = [
     description:
       'Adaptation mobile d\'une plateforme de gestion de cantine/périscolaire. Architecture MVVM avec gestion d\'état via Provider et API REST (HTTP/JSON).',
     stack: ['Flutter', 'Dart', 'API REST'],
-    color: 'from-emerald-600 to-green-600',
-    glowColor: 'emerald',
+    color: 'from-gold to-ash',
+    glowColor: 'gold',
   },
   {
     id: 3,
@@ -40,8 +40,8 @@ const projects: Project[] = [
     description:
       'Plateforme de Réalité Augmentée améliorée. Ajout de nouvelles fonctionnalités (pop-ups), stabilité accrue et correction de bugs critiques.',
     stack: ['JavaScript', 'SQL', 'Rerun'],
-    color: 'from-orange-600 to-red-600',
-    glowColor: 'orange',
+    color: 'from-crimson-dark to-crimson',
+    glowColor: 'crimson',
     isSAE: true,
     saeDetails: 'SAE - Réalité Augmentée & Innovation',
   },
@@ -78,7 +78,7 @@ export default function Projects() {
       >
         <motion.h2
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-          className="text-4xl md:text-5xl font-bold mb-16 text-center gradient-text"
+          className="text-4xl md:text-5xl font-bold mb-16 text-center gradient-text font-cinzel"
         >
           Showcase des Projets
         </motion.h2>
@@ -97,7 +97,7 @@ export default function Projects() {
               ></div>
 
               {/* Card */}
-              <div className="relative glass rounded-2xl p-8 h-full border border-indigo-500/20 group-hover:border-indigo-500/50 transition-colors flex flex-col">
+              <div className="relative glass rounded-none p-8 h-full border border-border-dark group-hover:border-crimson transition-colors flex flex-col">
                 {/* Title and Color Accent */}
                 <div className="mb-6">
                   <div className="flex items-start justify-between gap-4 mb-4">
@@ -114,16 +114,16 @@ export default function Projects() {
                       </motion.div>
                     )}
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                  <h3 className="text-2xl font-bold text-bone mb-2 font-cinzel">
                     {project.title}
                   </h3>
                   {project.saeDetails && (
-                    <p className="text-xs text-indigo-300 italic">{project.saeDetails}</p>
+                    <p className="text-xs text-gold italic">{project.saeDetails}</p>
                   )}
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-300 text-sm leading-relaxed mb-8 flex-1">
+                <p className="text-bone text-sm leading-relaxed mb-8 flex-1">
                   {project.description}
                 </p>
 
@@ -135,7 +135,7 @@ export default function Projects() {
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ delay: i * 0.1 }}
-                      className="px-3 py-1 text-xs font-semibold rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30"
+                      className="px-3 py-1 text-xs font-semibold rounded-none bg-crimson/30 text-gold border border-crimson/50"
                     >
                       {tech}
                     </motion.span>
@@ -146,7 +146,7 @@ export default function Projects() {
                 <motion.a
                   href="#"
                   whileHover={{ x: 8 }}
-                  className="text-indigo-400 font-semibold text-sm flex items-center gap-2 group/link"
+                  className="text-gold font-semibold text-sm flex items-center gap-2 group/link"
                 >
                   En savoir plus
                   <span className="opacity-0 group-hover/link:opacity-100 transition-opacity">

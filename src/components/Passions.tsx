@@ -55,7 +55,7 @@ export default function Passions() {
   };
 
   return (
-    <section className="w-full px-6 py-20 bg-gradient-to-b from-transparent to-indigo-500/5">
+    <section className="w-full px-6 py-20 bg-black">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -65,12 +65,12 @@ export default function Passions() {
       >
         <motion.h2
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-          className="text-4xl md:text-5xl font-bold mb-16 text-center gradient-text"
+          className="text-4xl md:text-5xl font-bold font-cinzel mb-16 text-center gradient-text"
         >
           Passions & Équilibre
         </motion.h2>
 
-        <p className="text-center text-gray-300 mb-16 text-lg max-w-2xl mx-auto">
+        <p className="text-center text-bone mb-16 text-lg max-w-2xl mx-auto">
           Pour moi, l'équilibre entre code et vie personnelle est essentiel. Ces passions façonnent qui je suis.
         </p>
 
@@ -84,16 +84,16 @@ export default function Passions() {
             >
               {/* Glow Effect */}
               <div
-                className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 bg-gradient-to-r ${passion.color} pointer-events-none`}
+                className={`absolute inset-0 rounded-sm opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 bg-gradient-to-r ${passion.color} pointer-events-none`}
               ></div>
 
               {/* Card */}
-              <div className="relative glass rounded-2xl p-8 h-full flex flex-col items-center justify-center text-center border border-indigo-500/20 group-hover:border-indigo-500/50 transition-colors">
-                <div className="text-gray-300 mb-4 group-hover:text-indigo-300 transition-colors">
+              <div className="relative glass rounded-sm p-8 h-full flex flex-col items-center justify-center text-center border border-border-dark group-hover:border-crimson transition-colors">
+                <div className="text-bone mb-4 group-hover:text-gold transition-colors">
                   {passion.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">{passion.name}</h3>
-                <p className="text-gray-400 text-sm">{passion.description}</p>
+                <h3 className="text-2xl font-bold font-cinzel text-white mb-2">{passion.name}</h3>
+                <p className="text-ash text-sm">{passion.description}</p>
               </div>
             </motion.div>
           ))}

@@ -1,10 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Sprout, Users, Zap, Star } from 'lucide-react';
 
 interface Value {
   title: string;
-  emoji: string;
+  emoji: React.ReactNode;
   description: string;
   details: string[];
   color: string;
@@ -14,51 +15,51 @@ interface Value {
 const values: Value[] = [
   {
     title: 'Éco-conception',
-    emoji: '🌱',
+    emoji: <Sprout className="w-6 h-6" />,
     description: 'Green IT & Durabilité Numérique',
     details: [
       'Optimisation de l\'empreinte carbone du code',
       'Architecture légère et économe en ressources',
       'Responsabilité environnementale du numérique',
     ],
-    color: 'text-green-400',
-    bgColor: 'from-green-600/20 to-emerald-600/20',
+    color: 'text-gold',
+    bgColor: 'from-crimson-dark/20 to-gold/10',
   },
   {
     title: 'Accessibilité (RGAA)',
-    emoji: '♿',
+    emoji: <Users className="w-6 h-6" />,
     description: 'Inclusion pour tous les utilisateurs',
     details: [
       'Interfaces accessibles et inclusives',
       'Respect des standards RGAA',
       'Design universel et bienveillant',
     ],
-    color: 'text-blue-400',
-    bgColor: 'from-blue-600/20 to-cyan-600/20',
+    color: 'text-gold',
+    bgColor: 'from-gold/10 to-crimson-dark/20',
   },
   {
     title: 'Agilité & Collaboration',
-    emoji: '⚡',
+    emoji: <Zap className="w-6 h-6" />,
     description: 'Travail d\'équipe et Adaptation',
     details: [
       'Méthodologies Scrum/Kanban',
       'Communication transparente',
       'Capacité à s\'adapter aux changements',
     ],
-    color: 'text-orange-400',
-    bgColor: 'from-orange-600/20 to-yellow-600/20',
+    color: 'text-gold',
+    bgColor: 'from-crimson/20 to-gold/10',
   },
   {
     title: 'Excellence Technique',
-    emoji: '⭐',
+    emoji: <Star className="w-6 h-6" />,
     description: 'Qualité & Rigueur Ingénieur',
     details: [
       'Code propre et maintenable (Clean Code)',
       'Documentation et bonnes pratiques',
       'Amélioration continue (kaizen)',
     ],
-    color: 'text-purple-400',
-    bgColor: 'from-purple-600/20 to-pink-600/20',
+    color: 'text-gold',
+    bgColor: 'from-gold/10 to-bone/5',
   },
 ];
 
@@ -80,7 +81,7 @@ export default function Values() {
   };
 
   return (
-    <section id="values" className="w-full px-6 py-20 bg-gradient-to-b from-transparent to-indigo-500/5">
+    <section id="values" className="w-full px-6 py-20 bg-black">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -92,10 +93,10 @@ export default function Values() {
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+          <h2 className="text-4xl md:text-5xl font-bold font-cinzel mb-4 gradient-text">
             Engagement & Valeurs
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-ash text-lg max-w-2xl mx-auto">
             Au-delà des compétences techniques, une posture d'ingénieur responsable
           </p>
         </motion.div>
@@ -110,21 +111,21 @@ export default function Values() {
             >
               {/* Glow Background */}
               <div
-                className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 bg-gradient-to-br ${value.bgColor} pointer-events-none`}
+                className={`absolute inset-0 rounded-sm opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 bg-gradient-to-br ${value.bgColor} pointer-events-none`}
               ></div>
 
               {/* Card */}
-              <div className="relative glass rounded-2xl p-8 border border-indigo-500/20 group-hover:border-indigo-500/50 transition-colors h-full flex flex-col">
+              <div className="relative glass rounded-sm p-8 border border-border-dark group-hover:border-crimson transition-colors h-full flex flex-col">
                 {/* Header */}
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="text-5xl group-hover:scale-110 transition-transform origin-left">
+                  <div className="w-12 h-12 flex items-center justify-center text-gold group-hover:scale-110 transition-transform origin-left flex-shrink-0">
                     {value.emoji}
                   </div>
                   <div>
-                    <h3 className={`text-2xl font-bold ${value.color} group-hover:brightness-125 transition-all`}>
-                      {value.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm mt-1">{value.description}</p>
+                  <h3 className={`text-2xl font-bold font-cinzel ${value.color} group-hover:brightness-125 transition-all`}>
+                    {value.title}
+                  </h3>
+                  <p className="text-ash text-sm mt-1">{value.description}</p>
                   </div>
                 </div>
 
@@ -136,7 +137,7 @@ export default function Values() {
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.1 }}
-                      className="flex gap-3 text-gray-300 text-sm"
+                      className="flex gap-3 text-bone text-sm"
                     >
                       <span className={`text-lg ${value.color} flex-shrink-0`}>✓</span>
                       <span>{detail}</span>
@@ -157,8 +158,8 @@ export default function Values() {
           transition={{ delay: 0.6 }}
           className="mt-16 text-center"
         >
-          <p className="text-gray-400 text-lg italic">
-            "Être ingénieur, c'est concevoir avec responsabilité et <span className="text-indigo-400 font-semibold">impact positif</span>"
+          <p className="text-ash text-lg italic">
+            "Être ingénieur, c'est concevoir avec responsabilité et <span className="text-gold font-semibold">impact positif</span>"
           </p>
         </motion.div>
       </motion.div>

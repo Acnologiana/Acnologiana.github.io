@@ -10,10 +10,27 @@ import {
   IoBriefcase,
 } from 'react-icons/io5';
 import { SiDart, SiFlutter, SiMysql, SiLinux, SiGit, SiDocker } from 'react-icons/si';
+import {
+  Hammer,
+  Sparkles,
+  CheckCircle2,
+  Beaker,
+  Microscope,
+  Link2,
+  Zap,
+  Bug,
+  Brain,
+  Radio,
+  BarChart3,
+  Plug,
+  ArrowUp,
+  Monitor,
+  Cog,
+} from 'lucide-react';
 
 interface SkillPillar {
   pillar: string;
-  emoji: string;
+  emoji: React.ReactNode;
   description: string;
   items: {
     name: string;
@@ -26,51 +43,51 @@ interface SkillPillar {
 const skillPillars: SkillPillar[] = [
   {
     pillar: 'Développement & Architecture',
-    emoji: '🏗️',
+    emoji: <Hammer className="w-6 h-6" />,
     description: 'Conception d\'applications robustes et scalables',
     items: [
-      { name: 'Java', icon: <span>☕</span>, color: 'text-orange-500', proficiency: 'Expert' },
-      { name: 'Kotlin', icon: <span>K</span>, color: 'text-purple-600', proficiency: 'Avancé' },
-      { name: 'Dart', icon: <SiDart />, color: 'text-blue-500', proficiency: 'Expert' },
-      { name: 'Flutter', icon: <SiFlutter />, color: 'text-blue-400', proficiency: 'Avancé' },
-      { name: 'React', icon: <IoLogoReact />, color: 'text-blue-400', proficiency: 'Avancé' },
-      { name: 'Patterns MVVM/Clean Code', icon: <span>✨</span>, color: 'text-indigo-400' },
+      { name: 'Java', icon: <span className="font-bold">J</span>, color: 'text-orange-500', proficiency: 'Expert' },
+      { name: 'Kotlin', icon: <span className="font-bold">K</span>, color: 'text-purple-600', proficiency: 'Avancé' },
+      { name: 'Dart', icon: <SiDart />, color: 'text-gold', proficiency: 'Expert' },
+      { name: 'Flutter', icon: <SiFlutter />, color: 'text-gold', proficiency: 'Avancé' },
+      { name: 'React', icon: <IoLogoReact />, color: 'text-gold', proficiency: 'Avancé' },
+      { name: 'Patterns MVVM/Clean Code', icon: <Sparkles />, color: 'text-gold' },
     ],
   },
   {
     pillar: 'Qualité & Validation (V)',
-    emoji: '✅',
+    emoji: <CheckCircle2 className="w-6 h-6" />,
     description: 'Tests, optimisation et assurance qualité',
     items: [
-      { name: 'JUnit', icon: <span>🧪</span>, color: 'text-cyan-400' },
-      { name: 'Tests unitaires', icon: <span>🔬</span>, color: 'text-cyan-400', proficiency: 'Avancé' },
-      { name: 'Tests d\'intégration', icon: <span>🔗</span>, color: 'text-cyan-400', proficiency: 'Avancé' },
-      { name: 'Code Robustness', icon: <span>💪</span>, color: 'text-cyan-400' },
-      { name: 'Debugging', icon: <span>🐛</span>, color: 'text-cyan-400', proficiency: 'Expert' },
+      { name: 'JUnit', icon: <Beaker />, color: 'text-gold' },
+      { name: 'Tests unitaires', icon: <Microscope />, color: 'text-gold', proficiency: 'Avancé' },
+      { name: 'Tests d\'intégration', icon: <Link2 />, color: 'text-gold', proficiency: 'Avancé' },
+      { name: 'Code Robustness', icon: <Zap />, color: 'text-gold' },
+      { name: 'Debugging', icon: <Bug />, color: 'text-gold', proficiency: 'Expert' },
     ],
   },
   {
     pillar: 'Environnement & DevOps',
-    emoji: '⚙️',
+    emoji: <Cog className="w-6 h-6" />,
     description: 'Infrastructure, déploiement et gestion de versions',
     items: [
-      { name: 'Git/GitHub', icon: <IoLogoGithub />, color: 'text-gray-400', proficiency: 'Expert' },
-      { name: 'Linux', icon: <SiLinux />, color: 'text-gray-300', proficiency: 'Avancé' },
-      { name: 'Docker', icon: <SiDocker />, color: 'text-blue-500', proficiency: 'Initié' },
-      { name: 'CI/CD', icon: <span>🚀</span>, color: 'text-orange-500', proficiency: 'Initié' },
-      { name: 'Administration système', icon: <span>🖥️</span>, color: 'text-gray-300' },
+      { name: 'Git/GitHub', icon: <IoLogoGithub />, color: 'text-gold', proficiency: 'Expert' },
+      { name: 'Linux', icon: <SiLinux />, color: 'text-bone', proficiency: 'Avancé' },
+      { name: 'Docker', icon: <SiDocker />, color: 'text-gold', proficiency: 'Initié' },
+      { name: 'CI/CD', icon: <ArrowUp />, color: 'text-crimson', proficiency: 'Initié' },
+      { name: 'Administration système', icon: <Monitor />, color: 'text-bone' },
     ],
   },
   {
     pillar: 'Innovation & Données',
-    emoji: '🤖',
+    emoji: <Brain className="w-6 h-6" />,
     description: 'IA, base de données et gestion de données',
     items: [
-      { name: 'SQL/MySQL', icon: <SiMysql />, color: 'text-blue-600', proficiency: 'Avancé' },
-      { name: 'IA & Machine Learning', icon: <span>🧠</span>, color: 'text-purple-500', proficiency: 'Initié' },
-      { name: 'IoT & Capteurs', icon: <span>📡</span>, color: 'text-green-500', proficiency: 'Initié' },
-      { name: 'Manipulation données', icon: <span>📊</span>, color: 'text-green-500', proficiency: 'Avancé' },
-      { name: 'API REST', icon: <span>🔌</span>, color: 'text-indigo-400', proficiency: 'Avancé' },
+      { name: 'SQL/MySQL', icon: <SiMysql />, color: 'text-gold', proficiency: 'Avancé' },
+      { name: 'IA & Machine Learning', icon: <Brain />, color: 'text-gold', proficiency: 'Initié' },
+      { name: 'IoT & Capteurs', icon: <Radio />, color: 'text-gold', proficiency: 'Initié' },
+      { name: 'Manipulation données', icon: <BarChart3 />, color: 'text-gold', proficiency: 'Avancé' },
+      { name: 'API REST', icon: <Plug />, color: 'text-gold', proficiency: 'Avancé' },
     ],
   },
 ];
@@ -97,9 +114,9 @@ export default function Skills() {
   };
 
   const proficiencyColor = {
-    Expert: 'bg-green-500/20 text-green-300 border-green-500/50',
-    Avancé: 'bg-blue-500/20 text-blue-300 border-blue-500/50',
-    Initié: 'bg-gray-500/20 text-gray-300 border-gray-500/50',
+    Expert: 'bg-gold/20 text-gold border-gold/50',
+    Avancé: 'bg-crimson/20 text-crimson border-crimson/50',
+    Initié: 'bg-ash/20 text-ash border-ash/50',
   };
 
   return (
@@ -113,14 +130,14 @@ export default function Skills() {
       >
         <motion.h2
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-          className="text-4xl md:text-5xl font-bold mb-4 text-center gradient-text"
+          className="text-4xl md:text-5xl font-bold mb-4 text-center gradient-text font-cinzel"
         >
           Compétences Techniques
         </motion.h2>
 
         <motion.p
           variants={pillarVariants}
-          className="text-center text-gray-400 mb-16 text-lg"
+          className="text-center text-ash mb-16 text-lg"
         >
           Organisées par piliers d'ingénierie pour une vision holistique des savoir-faire
         </motion.p>
@@ -130,7 +147,7 @@ export default function Skills() {
             <motion.div
               key={idx}
               variants={pillarVariants}
-              className="glass rounded-2xl p-8 border border-indigo-500/20 hover:border-indigo-500/50 transition-colors overflow-hidden group"
+              className="glass rounded-none p-8 border border-border-dark hover:border-crimson transition-colors overflow-hidden group"
             >
               {/* Header with emoji */}
               <div className="flex items-center gap-4 mb-6">
@@ -138,10 +155,10 @@ export default function Skills() {
                   {pillar.emoji}
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-indigo-400 group-hover:text-purple-400 transition-colors">
+                  <h3 className="text-xl font-bold text-gold group-hover:text-crimson transition-colors font-cinzel">
                     {pillar.pillar}
                   </h3>
-                  <p className="text-gray-400 text-sm mt-1">{pillar.description}</p>
+                  <p className="text-ash text-sm mt-1">{pillar.description}</p>
                 </div>
               </div>
 
@@ -155,16 +172,16 @@ export default function Skills() {
                     whileInView="visible"
                     transition={{ delay: i * 0.05 }}
                     whileHover={{ x: 8 }}
-                    className="flex items-center justify-between p-3 rounded-lg bg-indigo-500/5 hover:bg-indigo-500/15 transition-all border border-indigo-500/20 hover:border-indigo-500/40"
+                    className="flex items-center justify-between p-3 rounded-none bg-crimson-dark/10 hover:bg-crimson-dark/20 transition-all border border-border-dark hover:border-crimson"
                   >
                     <div className="flex items-center gap-3">
                       <span className={`text-xl ${skill.color}`}>{skill.icon}</span>
-                      <span className="text-gray-200 font-medium text-sm">{skill.name}</span>
+                      <span className="text-bone font-medium text-sm">{skill.name}</span>
                     </div>
 
                     {skill.proficiency && (
                       <span
-                        className={`text-xs px-2.5 py-1 rounded-full border font-semibold ${
+                        className={`text-xs px-2.5 py-1 rounded-none border font-semibold ${
                           proficiencyColor[skill.proficiency]
                         }`}
                       >
