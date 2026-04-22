@@ -55,7 +55,7 @@ export default function Passions() {
   };
 
   return (
-    <section className="w-full px-6 py-20 bg-black">
+    <section className="w-full px-4 sm:px-6 sm:py-12 md:py-20 bg-black">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -74,7 +74,7 @@ export default function Passions() {
           Pour moi, l'équilibre entre code et vie personnelle est essentiel. Ces passions façonnent qui je suis.
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:gap-4 md:gap-6 lg:gap-8">
           {passions.map((passion, idx) => (
             <motion.div
               key={idx}

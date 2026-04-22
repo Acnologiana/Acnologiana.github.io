@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/logo/logoCL.png",
+    icon: "/logoCL.png",
   },
 };
 
@@ -47,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`dark ${cinzel.variable} ${lora.variable}`}>
-      <body className="min-h-full flex flex-col bg-void dark:bg-void font-lora">
+      <body className="min-h-full flex flex-col bg-black dark:bg-black font-lora">
         <Navbar />
         {children}
       </body>

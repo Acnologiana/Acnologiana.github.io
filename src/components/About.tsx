@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BookOpen, Wrench, Home } from 'lucide-react';
 
 export default function About() {
   const containerVariants = {
@@ -20,7 +19,7 @@ export default function About() {
   };
 
   return (
-    <section className="w-full px-6 py-20 bg-void">
+    <section className="w-full px-4 sm:px-6 sm:py-12 md:py-20 bg-black">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -61,9 +60,9 @@ export default function About() {
           className="grid md:grid-cols-3 gap-6"
         >
           {[
-            { title: "De la théorie à la pratique", icon: <BookOpen className="w-6 h-6" /> },
-            { title: "Faire les bons choix techniques", icon: <Wrench className="w-6 h-6" /> },
-            { title: "Construire durablement", icon: <Home className="w-6 h-6" /> },
+            { title: "De la théorie à la pratique", icon: <img src="/propo1.png" alt="Théorie à la pratique" className="w-16 h-16" /> },
+            { title: "Faire les bons choix techniques", icon: <img src="/propo2.png" alt="Bons choix techniques" className="w-16 h-16" /> },
+            { title: "Construire durablement", icon: <img src="/propo3.png" alt="Construire durablement" className="w-16 h-16" /> },
           ].map((item, i) => (
             <motion.div
               key={i}

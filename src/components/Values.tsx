@@ -81,7 +81,7 @@ export default function Values() {
   };
 
   return (
-    <section id="values" className="w-full px-6 py-20 bg-black">
+    <section id="values" className="w-full px-4 sm:px-6 sm:py-12 md:py-20 bg-black">
       <motion.div
         variants={containerVariants}
         initial="hidden"

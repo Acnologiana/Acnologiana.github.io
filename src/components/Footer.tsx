@@ -13,7 +13,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full px-6 py-12 border-t border-border-dark bg-black">
+    <footer className="w-full px-4 sm:px-6 sm:py-6 md:py-12 border-t border-border-dark bg-black">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

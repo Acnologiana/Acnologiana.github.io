@@ -46,12 +46,12 @@ const skillPillars: SkillPillar[] = [
     emoji: <Hammer className="w-6 h-6" />,
     description: 'Conception d\'applications robustes et scalables',
     items: [
-      { name: 'Java', icon: <span className="font-bold">J</span>, color: 'text-orange-500', proficiency: 'Expert' },
-      { name: 'Kotlin', icon: <span className="font-bold">K</span>, color: 'text-purple-600', proficiency: 'Avancé' },
+      { name: 'Java', icon: <span className="font-bold">J</span>, color: 'text-gold', proficiency: 'Avancé' },
+      { name: 'Kotlin', icon: <span className="font-bold">K</span>, color: 'text-gold', proficiency: 'Avancé' },
       { name: 'Dart', icon: <SiDart />, color: 'text-gold', proficiency: 'Expert' },
-      { name: 'Flutter', icon: <SiFlutter />, color: 'text-gold', proficiency: 'Avancé' },
+      { name: 'Flutter', icon: <SiFlutter />, color: 'text-gold', proficiency: 'Expert' },
       { name: 'React', icon: <IoLogoReact />, color: 'text-gold', proficiency: 'Avancé' },
-      { name: 'Patterns MVVM/Clean Code', icon: <Sparkles />, color: 'text-gold' },
+      { name: 'Patterns MVVM/Clean Code', icon: <Sparkles />, color: 'text-gold', proficiency: 'Avancé' },
     ],
   },
   {
@@ -72,10 +72,10 @@ const skillPillars: SkillPillar[] = [
     description: 'Infrastructure, déploiement et gestion de versions',
     items: [
       { name: 'Git/GitHub', icon: <IoLogoGithub />, color: 'text-gold', proficiency: 'Expert' },
-      { name: 'Linux', icon: <SiLinux />, color: 'text-bone', proficiency: 'Avancé' },
+      { name: 'Linux', icon: <SiLinux />, color: 'text-gold', proficiency: 'Initié' },
       { name: 'Docker', icon: <SiDocker />, color: 'text-gold', proficiency: 'Initié' },
-      { name: 'CI/CD', icon: <ArrowUp />, color: 'text-crimson', proficiency: 'Initié' },
-      { name: 'Administration système', icon: <Monitor />, color: 'text-bone' },
+      { name: 'CI/CD', icon: <ArrowUp />, color: 'text-gold', proficiency: 'Initié' },
+      { name: 'Administration système', icon: <Monitor />, color: 'text-gold' },
     ],
   },
   {
@@ -115,12 +115,12 @@ export default function Skills() {
 
   const proficiencyColor = {
     Expert: 'bg-gold/20 text-gold border-gold/50',
-    Avancé: 'bg-crimson/20 text-crimson border-crimson/50',
+    Avancé: 'bg-crimson/20 text-ash border-crimson/50',
     Initié: 'bg-ash/20 text-ash border-ash/50',
   };
 
   return (
-    <section id="skills" className="w-full px-6 py-20">
+    <section id="skills" className="w-full px-4 sm:px-6 sm:py-12 md:py-20 bg-black">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -142,12 +142,12 @@ export default function Skills() {
           Organisées par piliers d'ingénierie pour une vision holistique des savoir-faire
         </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid md:grid-cols-2 sm:gap-4 md:gap-8 lg:gap-10">
           {skillPillars.map((pillar, idx) => (
             <motion.div
               key={idx}
               variants={pillarVariants}
-              className="glass rounded-none p-8 border border-border-dark hover:border-crimson transition-colors overflow-hidden group"
+              className="glass rounded-none sm:p-4 md:p-8 border border-border-dark hover:border-crimson transition-colors overflow-hidden group"
             >
               {/* Header with emoji */}
               <div className="flex items-center gap-4 mb-6">

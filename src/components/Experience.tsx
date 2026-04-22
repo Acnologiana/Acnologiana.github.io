@@ -83,7 +83,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="w-full px-6 py-20 bg-black"
+      className="w-full px-4 sm:px-6 sm:py-12 md:py-20 bg-black"
     >
       <motion.div
         variants={containerVariants}
@@ -109,18 +109,10 @@ export default function Experience() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className={`relative pl-20 md:pl-0 ${
+                className={`relative ${
                   index % 2 === 0 ? 'md:text-right md:pr-1/2 md:mr-auto' : 'md:text-left md:pl-1/2 md:ml-auto'
                 } md:w-1/2`}
               >
-                {/* Dot */}
-                <motion.div
-                  whileHover={{ scale: 1.3 }}
-                  className="absolute left-0 md:left-1/2 top-2 w-8 h-8 bg-gold rounded-none transform md:-translate-x-1/2 flex items-center justify-center text-white border-4 border-black"
-                >
-                  <div className="text-lg">✓</div>
-                </motion.div>
-
                 {/* Content Card */}
                 <div className="glass rounded-sm p-6 border border-border-dark hover:border-crimson transition-colors group">
                   <div className="flex items-center gap-3 mb-3">

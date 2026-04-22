@@ -23,8 +23,8 @@ export default function Contact() {
     {
       icon: <IoMail className="text-3xl" />,
       label: 'Email',
-      value: 'clement.lachize@etud.univ-lyon1.fr',
-      href: 'mailto:clement.lachize@etud.univ-lyon1.fr',
+      value: 'lachizeclement@gmail.com',
+      href: 'mailto:lachizeclement@gmail.com',
     },
     {
       icon: <IoLogoLinkedin className="text-3xl" />,
@@ -43,7 +43,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="w-full px-6 py-20 bg-black"
+      className="w-full px-4 sm:px-6 sm:py-12 md:py-20 bg-black"
     >
       <motion.div
         variants={containerVariants}
@@ -66,16 +66,16 @@ export default function Contact() {
           Vous avez un projet en tête, une question ou simplement envie de discuter ? Je serais ravi d'échanger avec vous.
         </motion.p>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-4 md:gap-8 mb-16">
           {contactInfo.map((contact, idx) => (
             <motion.a
               key={idx}
               variants={itemVariants}
               href={contact.href}
               whileHover={{ scale: 1.05, y: -8 }}
-              className="glass rounded-sm p-8 border border-border-dark hover:border-crimson transition-colors group"
+              className="glass rounded-sm p-8 border border-border-dark hover:border-crimson transition-colors group flex flex-col items-center text-center"
             >
-              <div className="text-gold mb-4 group-hover:text-gold transition-colors">
+              <div className="text-gold mb-4 group-hover:text-gold transition-colors flex justify-center">
                 {contact.icon}
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">{contact.label}</h3>
@@ -86,7 +86,7 @@ export default function Contact() {
 
         <motion.a
           variants={itemVariants}
-          href="mailto:clement.lachize@etud.univ-lyon1.fr"
+          href="mailto:lachizeclement@gmail.com"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="inline-block px-10 py-4 bg-gold rounded-none font-semibold text-black hover:shadow-lg hover:shadow-gold/50 transition-all border border-gold hover:border-crimson"

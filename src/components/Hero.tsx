@@ -38,7 +38,7 @@ export default function Hero() {
         transition={{ duration: 0.8 }}
         className="mb-12 z-10"
       >
-        <img src="/logo/logoCL.png" alt="Logo Clément Lachize" className="h-48 w-auto" />
+        <img src="/logoCL.png" alt="Logo Clément Lachize" className="h-36 sm:h-48 md:h-64 lg:h-80 xl:h-96 2xl:h-[26rem] w-auto" />
       </motion.div>
 
       <motion.div

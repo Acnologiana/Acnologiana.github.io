@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface Project {
   id: number;
@@ -11,6 +12,7 @@ interface Project {
   glowColor: string;
   isSAE?: boolean;
   saeDetails?: string;
+  isProfessional?: boolean;
 }
 
 const projects: Project[] = [
@@ -33,6 +35,7 @@ const projects: Project[] = [
     stack: ['Flutter', 'Dart', 'API REST'],
     color: 'from-gold to-ash',
     glowColor: 'gold',
+    isProfessional: true,
   },
   {
     id: 3,
@@ -67,7 +70,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="w-full px-6 py-20"
+      className="w-full px-4 sm:px-6 sm:py-12 md:py-20 bg-black"
     >
       <motion.div
         variants={containerVariants}
@@ -83,21 +86,22 @@ export default function Projects() {
           Showcase des Projets
         </motion.h2>
 
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 sm:gap-4 md:gap-8">
           {projects.map((project) => (
-            <motion.div
-              key={project.id}
-              variants={cardVariants}
-              whileHover="hover"
-              className="group relative"
-            >
+            <Link key={project.id} href={`/projects/${project.id}`}>
+              <motion.div
+                variants={cardVariants}
+                whileHover="hover"
+                className="group relative cursor-pointer"
+              >
               {/* Glow Effect */}
               <div
                 className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 bg-gradient-to-r ${project.color} pointer-events-none`}
               ></div>
 
               {/* Card */}
-              <div className="relative glass rounded-none p-8 h-full border border-border-dark group-hover:border-crimson transition-colors flex flex-col">
+              <div className="relative glass rounded-none sm:p-4 md:p-8 h-full border border-border-dark group-hover:border-crimson transition-colors flex flex-col">
+                {/* Title and Color Accent */}
                 {/* Title and Color Accent */}
                 <div className="mb-6">
                   <div className="flex items-start justify-between gap-4 mb-4">
@@ -108,9 +112,20 @@ export default function Projects() {
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        className="px-3 py-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full text-xs font-bold text-white whitespace-nowrap"
+                        className="flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-crimson to-gold rounded-none text-xs font-bold text-bone whitespace-nowrap"
                       >
-                        📚 Projet Académique
+                        <img src="/academie.png" alt="" className="w-7 h-7" />
+                        Projet Académique
+                      </motion.div>
+                    )}
+                    {project.isProfessional && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        className="flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-gold to-crimson rounded-none text-xs font-bold text-bone whitespace-nowrap"
+                      >
+                        <img src="/entreprise.png" alt="" className="w-7 h-7" />
+                        Projet Professionnel
                       </motion.div>
                     )}
                   </div>
@@ -143,18 +158,18 @@ export default function Projects() {
                 </div>
 
                 {/* Learn More Link */}
-                <motion.a
-                  href="#"
+                <motion.span
                   whileHover={{ x: 8 }}
-                  className="text-gold font-semibold text-sm flex items-center gap-2 group/link"
+                  className="text-gold font-semibold text-sm flex items-center gap-2 group/link cursor-pointer"
                 >
                   En savoir plus
                   <span className="opacity-0 group-hover/link:opacity-100 transition-opacity">
                     →
                   </span>
-                </motion.a>
+                </motion.span>
               </div>
             </motion.div>
+            </Link>
           ))}
         </div>
       </motion.div>
