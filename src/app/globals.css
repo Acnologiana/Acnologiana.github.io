@@ -30,6 +30,7 @@ body {
   font-family: var(--font-lora);
   overflow-x: hidden;
   position: relative;
+  text-align: justify;
 }
 
 /* Vignette effect - Dark edges */

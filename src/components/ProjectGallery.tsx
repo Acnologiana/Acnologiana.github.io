@@ -31,68 +31,96 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
 
   return (
     <div className="w-full mb-16">
-      {/* Main media display */}
+      {/* Main media display with description */}
       <div className="relative mb-4 bg-black rounded-none border border-border-dark overflow-hidden group">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="relative w-full aspect-video bg-black flex items-center justify-center"
-          >
-            {currentMedia.type === 'image' ? (
-              <img
-                src={currentMedia.url}
-                alt={currentMedia.title || 'Project media'}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <video
-                src={currentMedia.url}
-                controls
-                className="w-full h-full"
-                poster={currentMedia.thumbnail}
-              />
-            )}
-          </motion.div>
-        </AnimatePresence>
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 p-6 md:p-8">
+          {/* Image/Video Section */}
+          <div className="flex-1 flex justify-center items-center bg-black rounded-none border border-border-dark/50 overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="relative w-full max-w-sm h-auto max-h-[600px] bg-black flex items-center justify-center py-8 group/media"
+              >
+                {currentMedia.type === 'image' ? (
+                  <img
+                    src={currentMedia.url}
+                    alt={currentMedia.title || 'Project media'}
+                    className="w-auto h-auto max-h-[600px] object-contain"
+                  />
+                ) : (
+                  <video
+                    src={currentMedia.url}
+                    controls
+                    className="w-auto h-auto max-h-[600px] object-contain"
+                    poster={currentMedia.thumbnail}
+                  />
+                )}
 
-        {/* Navigation buttons */}
-        <button
-          onClick={goToPrevious}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-black/70 hover:bg-gold/20 rounded-none border border-gold/30 hover:border-gold transition-all opacity-0 group-hover:opacity-100"
-          aria-label="Previous media"
-        >
-          <ChevronLeft className="w-6 h-6 text-gold" />
-        </button>
+                {/* Navigation buttons */}
+                <button
+                  onClick={goToPrevious}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-black/70 hover:bg-gold/20 rounded-none border border-gold/30 hover:border-gold transition-all opacity-0 group-hover/media:opacity-100"
+                  aria-label="Previous media"
+                >
+                  <ChevronLeft className="w-6 h-6 text-gold" />
+                </button>
 
-        <button
-          onClick={goToNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-black/70 hover:bg-gold/20 rounded-none border border-gold/30 hover:border-gold transition-all opacity-0 group-hover:opacity-100"
-          aria-label="Next media"
-        >
-          <ChevronRight className="w-6 h-6 text-gold" />
-        </button>
+                <button
+                  onClick={goToNext}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-black/70 hover:bg-gold/20 rounded-none border border-gold/30 hover:border-gold transition-all opacity-0 group-hover/media:opacity-100"
+                  aria-label="Next media"
+                >
+                  <ChevronRight className="w-6 h-6 text-gold" />
+                </button>
 
-        {/* Counter */}
-        <div className="absolute bottom-4 right-4 bg-black/80 px-3 py-1 rounded-none border border-gold/30 text-gold text-sm font-semibold">
-          {currentIndex + 1} / {project.media.length}
-        </div>
+                {/* Counter */}
+                <div className="absolute bottom-4 right-4 bg-black/80 px-3 py-1 rounded-none border border-gold/30 text-gold text-sm font-semibold">
+                  {currentIndex + 1} / {project.media.length}
+                </div>
 
-        {/* Media type indicator */}
-        {currentMedia.type === 'video' && (
-          <div className="absolute top-4 left-4 bg-crimson/80 px-3 py-1 rounded-none text-bone text-sm font-semibold">
-            Vidéo
+                {/* Media type indicator */}
+                {currentMedia.type === 'video' && (
+                  <div className="absolute top-4 left-4 bg-crimson/80 px-3 py-1 rounded-none text-bone text-sm font-semibold">
+                    Vidéo
+                  </div>
+                )}
+              </motion.div>
+            </AnimatePresence>
           </div>
-        )}
-      </div>
 
-      {/* Media title */}
-      {currentMedia.title && (
-        <p className="text-bone text-sm mb-6 ml-1">{currentMedia.title}</p>
-      )}
+          {/* Description Section */}
+          <div className="flex-1 flex flex-col justify-center">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-4"
+            >
+              <h3 className="text-2xl font-bold text-gold font-cinzel">
+                {currentMedia.title}
+              </h3>
+              
+              {currentMedia.description && (
+                <p className="text-bone leading-relaxed text-sm md:text-base text-justify">
+                  {currentMedia.description}
+                </p>
+              )}
+              
+              {/* Media type badge */}
+              {currentMedia.type === 'video' && (
+                <div className="inline-block px-3 py-1 bg-crimson/20 text-crimson border border-crimson/50 rounded-none text-xs font-semibold">
+                  Vidéo
+                </div>
+              )}
+            </motion.div>
+          </div>
+        </div>
+      </div>
 
       {/* Thumbnail carousel */}
       <div className="flex gap-2 overflow-x-auto pb-2">

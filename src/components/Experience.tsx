@@ -25,15 +25,16 @@ const events: TimelineEvent[] = [
   },
   {
     year: '2023-2026',
-    title: 'BUT Informatique - Parcours RACDV',
-    organization: 'IUT Lyon 1 - Campus de Bourg-en-Bresse',
+    title: 'BUT Informatique',
+    organization: 'IUT Lyon 1 - Site de Bourg-en-Bresse',
     description:
       'Réalisation d\'Applications : Conception, Développement, Validation',
     details: [
-      '• Coloration Mobile & 3D : Spécialisation en interfaces immersives et développement mobile',
-      '• Apprentissage par Projet (SAE) : Situations d\'Apprentissage et d\'Évaluation simulant des contraintes réelles',
-      '• Approche Scientifique : Algorithmique avancée, mathématiques, gestion de projet agile',
-      '• Actuellement en 3e année avec spécialisation en architecture et conception robuste',
+      'Formation professionnalisante en 3 ans, avec 600 h de projets et une 3e année en alternance.',
+      'Développement web et mobile, bases de données, systèmes et réseaux, algorithmique, mathématiques et gestion de projet.', 
+      'Mobile & 3D : Spécialisation en interfaces immersives et développement mobile',
+      'Apprentissage par Projet (SAE) : Projet en Situations d\'Apprentissage et d\'Évaluation simulant des contraintes réelles',
+      'Approche Scientifique : Algorithmique avancée, mathématiques, gestion de projet agile',
     ],
     type: 'education',
     icon: <IoSchool className="text-2xl" />,
@@ -49,14 +50,17 @@ const events: TimelineEvent[] = [
   },
   {
     year: '2025-2026',
-    title: 'Développeur Mobile',
+    title: 'Développeur Informatique',
     organization: 'RPC - Alternance',
     description:
-      'Développement d\'applications mobiles (Bon\'App Petit, etc.) — Gestion familiale et cantine numérique',
+      'Développement d\'applications mobiles Bon\'App Petit et Ropach Mobile',
     details: [
-      '📱 Architecture MVVM avec gestion d\'état (Provider Pattern)',
-      '🔗 API REST (HTTP/JSON) et intégration données en temps réel',
-      '✅ Tests unitaires et validation qualité',
+      'Alternance école/entreprise : 2 semaines en entreprise, 2 semaine à l\'université puis 5 mois en entreprise d\'avril a septembre.',
+      'Reprise et maintenance de projets existants : Refactorisation du code et ajout de nouvelles fonctionnalités',
+      'Architecture MVVM avec gestion d\'état (Provider Pattern)',
+      'API REST (HTTP/JSON) et intégration données en temps réel',
+      'Tests unitaires et validation qualité',
+      'Collaboration avec l\'équipe : Codes reviews, pair programming, planification agile',
     ],
     type: 'experience',
     icon: <IoBriefcase className="text-2xl" />,
@@ -101,53 +105,68 @@ export default function Experience() {
 
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-bone transform md:-translate-x-1/2"></div>
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-gold to-crimson transform md:-translate-x-1/2"></div>
 
           {/* Timeline Events */}
           <div className="space-y-12">
-            {events.map((event, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className={`relative ${
-                  index % 2 === 0 ? 'md:text-right md:pr-1/2 md:mr-auto' : 'md:text-left md:pl-1/2 md:ml-auto'
-                } md:w-1/2`}
-              >
-                {/* Content Card */}
-                <div className="glass rounded-sm p-6 border border-border-dark hover:border-crimson transition-colors group">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span
-                      className={`p-2 rounded-lg ${
-                        event.type === 'education'
-                          ? 'bg-crimson/20 text-gold'
-                          : 'bg-crimson/20 text-gold'
-                      }`}
-                    >
-                      {event.icon}
-                    </span>
-                    <p className="text-sm font-semibold text-gold">{event.year}</p>
+            {events.map((event, index) => {
+              const isEven = index % 2 === 0;
+              const isEducation = event.type === 'education';
+              
+              return (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className={`relative flex ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                >
+                  {/* Timeline Dot */}
+                  <div className={`absolute left-0 top-2 w-13 h-13 md:left-1/2 md:transform md:-translate-x-1/2 flex items-center justify-center z-10`}>
+                    <div className={`w-5 h-5 rounded-full border-4 border-black bg-gold`}></div>
                   </div>
 
-                  <h3 className="text-xl font-bold font-cinzel text-white mb-1 group-hover:text-gold transition-colors">
-                    {event.title}
-                  </h3>
-                  <p className="text-gold text-sm mb-2 font-medium">{event.organization}</p>
-                  <p className="text-bone text-sm leading-relaxed mb-3">{event.description}</p>
+                  {/* Content Wrapper */}
+                  <div className={`w-full md:w-1/2 ${isEven ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'} pl-16 md:pl-0`}>
+                    {/* Content Card */}
+                    <motion.div
+                      whileHover={{ scale: 1.02, y: -4 }}
+                      className={`glass rounded-sm p-6 border-l-4 md:border-l-0 border-l-gold md:border-r-4 md:border-r-gold hover:border-opacity-100 border-opacity-50 transition-all`}
+                    >
+                      <div className="flex items-center gap-3 mb-3 md:flex-row-reverse">
+                        <span
+                          className={`p-2 rounded-lg bg-gold/20 text-gold`}
+                        >
+                          {event.icon}
+                        </span>
+                        <div className="flex-1">
+                          <p className={`text-xs font-bold uppercase tracking-wider text-gold`}>
+                            {isEducation ? 'Études' : 'Expérience'}
+                          </p>
+                          <p className={`text-sm font-semibold text-gold`}>{event.year}</p>
+                        </div>
+                      </div>
 
-                  {/* Details List */}
-                  {event.details && (
-                    <ul className="space-y-2 text-xs text-ash">
-                      {event.details.map((detail, idx) => (
-                        <li key={idx} className="flex gap-2">
-                          <span className="text-gold">→</span>
-                          <span>{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+                      <h3 className="text-lg md:text-xl font-bold font-cinzel text-white mb-1 hover:text-gold transition-colors">
+                        {event.title}
+                      </h3>
+                      <p className={`text-gold text-sm mb-2 font-medium`}>{event.organization}</p>
+                      <p className="text-bone text-sm leading-relaxed mb-3 text-left">{event.description}</p>
+
+                      {/* Details List */}
+                      {event.details && (
+                        <ul className="space-y-2 text-xs text-ash text-left">
+                          {event.details.map((detail, idx) => (
+                            <li key={idx} className="flex gap-2 items-start">
+                              <span className={`text-gold font-bold flex-shrink-0`}>•</span>
+                              <span className="text-left">{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </motion.div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </motion.div>

@@ -7,8 +7,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: <IoLogoGithub />, href: '#', label: 'GitHub' },
-    { icon: <IoLogoLinkedin />, href: '#', label: 'LinkedIn' },
+    { icon: <IoLogoGithub />, href: 'https://github.com/Acnologiana', label: 'GitHub' },
+    { icon: <IoLogoLinkedin />, href: 'https://www.linkedin.com/in/cl%C3%A9ment-lachize-620039336/', label: 'LinkedIn' },
     { icon: <IoMail />, href: 'mailto:clement.lachize@etud.univ-lyon1.fr', label: 'Email' },
   ];
 
@@ -23,9 +23,6 @@ export default function Footer() {
         {/* Copyright */}
         <div className="text-ash text-sm text-center md:text-left">
           <p>© {currentYear} Clément Lachize. Tous droits réservés.</p>
-          <p className="flex items-center justify-center md:justify-start gap-1 mt-1">
-            Conçu avec <IoHeart className="text-red-500" /> et beaucoup de code ⚙️
-          </p>
         </div>
 
         {/* Social Links */}
@@ -38,6 +35,7 @@ export default function Footer() {
               whileHover={{ scale: 1.2, rotate: 10 }}
               whileTap={{ scale: 0.95 }}
               aria-label={link.label}
+              {...((['LinkedIn', 'GitHub'].includes(link.label)) && { target: '_blank', rel: 'noopener noreferrer' })}
             >
               {link.icon}
             </motion.a>

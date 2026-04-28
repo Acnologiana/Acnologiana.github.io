@@ -30,13 +30,13 @@ export default function Contact() {
       icon: <IoLogoLinkedin className="text-3xl" />,
       label: 'LinkedIn',
       value: 'Clément Lachize',
-      href: '#',
+      href: 'https://www.linkedin.com/in/cl%C3%A9ment-lachize-620039336/',
     },
     {
       icon: <IoLogoGithub className="text-3xl" />,
       label: 'GitHub',
       value: 'Acnologiana',
-      href: '#',
+      href: 'https://github.com/Acnologiana',
     },
   ];
 
@@ -74,6 +74,7 @@ export default function Contact() {
               href={contact.href}
               whileHover={{ scale: 1.05, y: -8 }}
               className="glass rounded-sm p-8 border border-border-dark hover:border-crimson transition-colors group flex flex-col items-center text-center"
+              {...((['LinkedIn', 'GitHub'].includes(contact.label)) && { target: '_blank', rel: 'noopener noreferrer' })}
             >
               <div className="text-gold mb-4 group-hover:text-gold transition-colors flex justify-center">
                 {contact.icon}

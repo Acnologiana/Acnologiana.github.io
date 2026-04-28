@@ -38,19 +38,19 @@ export default function About() {
           variants={itemVariants}
           className="glass rounded-none p-8 md:p-12 mb-8 space-y-6 border border-border-dark"
         >
-          <p className="text-lg text-bone leading-relaxed">
+          <p className="text-lg text-bone leading-relaxed text-justify">
             Je suis développeur, actuellement en 3<sup>e</sup> année de BUT Informatique à l'IUT Lyon 1.
           </p>
 
-          <p className="text-lg text-bone leading-relaxed">
+          <p className="text-lg text-bone leading-relaxed text-justify">
             Au départ, je me voyais surtout comme quelqu'un qui code. Mais au fil de mes projets et de mon alternance chez <span className="text-gold font-semibold">RPC</span>, j'ai compris que ce qui m'intéresse vraiment, c'est tout ce qu'il y a autour : comprendre un besoin concret, faire les bons choix techniques et construire quelque chose de fiable.
           </p>
 
-          <p className="text-lg text-bone leading-relaxed">
+          <p className="text-lg text-bone leading-relaxed text-justify">
             Travailler sur des applications utilisées au quotidien m'a appris à sortir de la théorie et à prendre en compte de vraies contraintes : utilisateurs, stabilité, organisation du travail.
           </p>
 
-          <p className="text-lg text-bone leading-relaxed">
+          <p className="text-lg text-bone leading-relaxed text-justify">
             Aujourd'hui, je suis admis à <span className="text-gold font-semibold">CPE Lyon</span> (sous réserve de trouver une alternance) et je souhaite évoluer vers des domaines comme l'intelligence artificielle et la robotique. J'ai envie d'aller plus loin que le développement pur, et de participer à la conception de systèmes capables d'interagir avec le réel.
           </p>
         </motion.div>
@@ -60,9 +60,9 @@ export default function About() {
           className="grid md:grid-cols-3 gap-6"
         >
           {[
-            { title: "De la théorie à la pratique", icon: <img src="/propo1.png" alt="Théorie à la pratique" className="w-16 h-16" /> },
-            { title: "Faire les bons choix techniques", icon: <img src="/propo2.png" alt="Bons choix techniques" className="w-16 h-16" /> },
-            { title: "Construire durablement", icon: <img src="/propo3.png" alt="Construire durablement" className="w-16 h-16" /> },
+            { title: "De la théorie à la pratique", icon: <img src="/icone/image/propo1.png" alt="Théorie à la pratique" className="w-16 h-16" /> },
+            { title: "Faire les bons choix techniques", icon: <img src="/icone/image/propo2.png" alt="Bons choix techniques" className="w-16 h-16" /> },
+            { title: "Construire durablement", icon: <img src="/icone/image/propo3.png" alt="Construire durablement" className="w-16 h-16" /> },
           ].map((item, i) => (
             <motion.div
               key={i}

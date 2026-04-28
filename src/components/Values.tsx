@@ -26,7 +26,7 @@ const values: Value[] = [
     bgColor: 'from-crimson-dark/20 to-gold/10',
   },
   {
-    title: 'Accessibilité (RGAA)',
+    title: 'Accessibilité',
     emoji: <Users className="w-6 h-6" />,
     description: 'Inclusion pour tous les utilisateurs',
     details: [
@@ -42,7 +42,7 @@ const values: Value[] = [
     emoji: <Zap className="w-6 h-6" />,
     description: 'Travail d\'équipe et Adaptation',
     details: [
-      'Méthodologies Scrum/Kanban',
+      'Méthodologies Scrum',
       'Communication transparente',
       'Capacité à s\'adapter aux changements',
     ],
@@ -56,7 +56,7 @@ const values: Value[] = [
     details: [
       'Code propre et maintenable (Clean Code)',
       'Documentation et bonnes pratiques',
-      'Amélioration continue (kaizen)',
+      'Amélioration continue et apprentissage',
     ],
     color: 'text-gold',
     bgColor: 'from-gold/10 to-bone/5',

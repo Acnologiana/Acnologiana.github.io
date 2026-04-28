@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { IoMusicalNote, IoTennisball, IoFitness, IoBook } from 'react-icons/io5';
+import { IoMusicalNote, IoTennisball, IoBook } from 'react-icons/io5';
+import { Dumbbell } from 'lucide-react';
 
 interface Passion {
   name: string;
@@ -15,7 +16,7 @@ const passions: Passion[] = [
     name: 'Musique',
     icon: <IoMusicalNote className="text-4xl" />,
     color: 'from-pink-600 to-red-600',
-    description: 'Exploration musicale & création sonore',
+    description: 'Source d\'inspiration et de créativité',
   },
   {
     name: 'Tennis',
@@ -24,8 +25,8 @@ const passions: Passion[] = [
     description: 'Compétition & développement personnel',
   },
   {
-    name: 'Gym',
-    icon: <IoFitness className="text-4xl" />,
+    name: 'Musculation',
+    icon: <Dumbbell className="text-4xl" />,
     color: 'from-orange-600 to-yellow-600',
     description: 'Discipline & bien-être physique',
   },

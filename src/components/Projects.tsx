@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { projectsData } from '@/data/projectsData';
 
 interface Project {
   id: number;
@@ -13,42 +14,21 @@ interface Project {
   isSAE?: boolean;
   saeDetails?: string;
   isProfessional?: boolean;
+  mascotteUrl?: string;
 }
 
-const projects: Project[] = [
-  {
-    id: 1,
-    title: 'MindVault',
-    description:
-      'Application d\'aide-mémoire pour personnes atteintes de troubles mnésiques. Propose une gestion complète d\'agenda, notes et listes de cours intégrées.',
-    stack: ['Flutter', 'Dart', 'MySQL'],
-    color: 'from-crimson to-gold',
-    glowColor: 'gold',
-    isSAE: true,
-    saeDetails: 'SAE - Projet d\'Application Mobile',
-  },
-  {
-    id: 2,
-    title: 'Ropach Mobile',
-    description:
-      'Adaptation mobile d\'une plateforme de gestion de cantine/périscolaire. Architecture MVVM avec gestion d\'état via Provider et API REST (HTTP/JSON).',
-    stack: ['Flutter', 'Dart', 'API REST'],
-    color: 'from-gold to-ash',
-    glowColor: 'gold',
-    isProfessional: true,
-  },
-  {
-    id: 3,
-    title: 'HERA',
-    description:
-      'Plateforme de Réalité Augmentée améliorée. Ajout de nouvelles fonctionnalités (pop-ups), stabilité accrue et correction de bugs critiques.',
-    stack: ['JavaScript', 'SQL', 'Rerun'],
-    color: 'from-crimson-dark to-crimson',
-    glowColor: 'crimson',
-    isSAE: true,
-    saeDetails: 'SAE - Réalité Augmentée & Innovation',
-  },
-];
+const projects: Project[] = projectsData.map(p => ({
+  id: p.id,
+  title: p.title,
+  description: p.shortDescription,
+  stack: p.stack,
+  color: p.color,
+  glowColor: p.glowColor,
+  isSAE: p.isSAE,
+  saeDetails: p.saeDetails,
+  isProfessional: p.isProfessional,
+  mascotteUrl: p.mascotteUrl,
+}));
 
 export default function Projects() {
   const containerVariants = {
@@ -86,13 +66,13 @@ export default function Projects() {
           Showcase des Projets
         </motion.h2>
 
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 sm:gap-4 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 sm:gap-4 md:gap-8 auto-rows-max">
           {projects.map((project) => (
-            <Link key={project.id} href={`/projects/${project.id}`}>
+            <Link key={project.id} href={`/projects/${project.id}`} className="h-full">
               <motion.div
                 variants={cardVariants}
                 whileHover="hover"
-                className="group relative cursor-pointer"
+                className="group relative cursor-pointer h-full"
               >
               {/* Glow Effect */}
               <div
@@ -114,7 +94,7 @@ export default function Projects() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         className="flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-crimson to-gold rounded-none text-xs font-bold text-bone whitespace-nowrap"
                       >
-                        <img src="/academie.png" alt="" className="w-7 h-7" />
+                        <img src="/icone/image/academie.png" alt="" className="w-7 h-7" />
                         Projet Académique
                       </motion.div>
                     )}
@@ -124,9 +104,18 @@ export default function Projects() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         className="flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-gold to-crimson rounded-none text-xs font-bold text-bone whitespace-nowrap"
                       >
-                        <img src="/entreprise.png" alt="" className="w-7 h-7" />
+                        <img src="/icone/image/entreprise.png" alt="" className="w-7 h-7" />
                         Projet Professionnel
                       </motion.div>
+                    )}
+                    {project.mascotteUrl && (
+                      <motion.img
+                        src={project.mascotteUrl}
+                        alt={`Mascotte ${project.title}`}
+                        className="w-20 h-20 object-contain rounded-lg flex-shrink-0"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                      />
                     )}
                   </div>
                   <h3 className="text-2xl font-bold text-bone mb-2 font-cinzel">
@@ -138,7 +127,7 @@ export default function Projects() {
                 </div>
 
                 {/* Description */}
-                <p className="text-bone text-sm leading-relaxed mb-8 flex-1">
+                <p className="text-bone text-sm leading-relaxed mb-8 flex-1 text-justify">
                   {project.description}
                 </p>
 

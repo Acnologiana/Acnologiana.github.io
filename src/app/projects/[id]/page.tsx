@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { useParams, useRouter } from 'next/navigation';
-import { ArrowLeft } from 'lucide-react';
 import { projectsData } from '@/data/projectsData';
 import ProjectGallery from '@/components/ProjectGallery';
 
@@ -44,17 +43,6 @@ export default function ProjectDetail() {
 
   return (
     <main className="w-full bg-black min-h-screen">
-      {/* Header avec bouton retour */}
-      <div className="w-full px-4 sm:px-6 py-6 bg-obsidian border-b border-border-dark">
-        <button
-          onClick={() => router.back()}
-          className="flex items-center gap-2 text-gold hover:text-crimson transition-colors font-semibold"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          Retour
-        </button>
-      </div>
-
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -69,7 +57,7 @@ export default function ProjectDetail() {
             ></div>
             <div className="relative glass rounded-none p-8 md:p-12 border border-border-dark">
               <div className="flex items-start justify-between gap-6 mb-6">
-                <div>
+                <div className="flex-1">
                   <h1 className="text-5xl md:text-6xl font-bold mb-4 text-bone font-cinzel">
                     {project.title}
                   </h1>
@@ -77,10 +65,16 @@ export default function ProjectDetail() {
                     {project.fullDescription}
                   </p>
                 </div>
-                {project.isSAE && (
-                  <div className="px-4 py-2 bg-gold/20 text-gold border border-gold/50 rounded-none font-semibold whitespace-nowrap">
-                    {project.saeDetails}
-                  </div>
+                {/* Mascotte du projet */}
+                {project.mascotteUrl && (
+                  <motion.img
+                    src={project.mascotteUrl}
+                    alt={`Mascotte ${project.title}`}
+                    className="w-40 h-40 md:w-56 md:h-56 object-contain flex-shrink-0 rounded-lg"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6 }}
+                  />
                 )}
               </div>
             </div>
@@ -97,7 +91,7 @@ export default function ProjectDetail() {
           <h2 className="text-4xl font-bold text-gold mb-8 font-cinzel">À propos du projet</h2>
           <div className="space-y-6">
             {project.longDescription.map((paragraph, i) => (
-              <p key={i} className="text-lg text-bone leading-relaxed">
+              <p key={i} className="text-lg text-bone leading-relaxed text-justify">
                 {paragraph}
               </p>
             ))}
@@ -113,7 +107,7 @@ export default function ProjectDetail() {
               {project.features.map((feature, i) => (
                 <li key={i} className="flex items-start gap-3 text-bone">
                   <span className="text-gold font-bold mt-1">•</span>
-                  <span>{feature}</span>
+                  <span className="text-left">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -126,7 +120,7 @@ export default function ProjectDetail() {
               {project.challenges.map((challenge, i) => (
                 <li key={i} className="flex items-start gap-3 text-bone">
                   <span className="text-crimson font-bold mt-1">•</span>
-                  <span>{challenge}</span>
+                  <span className="text-left">{challenge}</span>
                 </li>
               ))}
             </ul>
@@ -139,7 +133,7 @@ export default function ProjectDetail() {
               {project.results.map((result, i) => (
                 <li key={i} className="flex items-start gap-3 text-bone">
                   <span className="text-gold font-bold mt-1">✓</span>
-                  <span>{result}</span>
+                  <span className="text-left">{result}</span>
                 </li>
               ))}
             </ul>

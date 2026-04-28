@@ -55,14 +55,14 @@ const skillPillars: SkillPillar[] = [
     ],
   },
   {
-    pillar: 'Qualité & Validation (V)',
+    pillar: 'Qualité & Validation',
     emoji: <CheckCircle2 className="w-6 h-6" />,
     description: 'Tests, optimisation et assurance qualité',
     items: [
-      { name: 'JUnit', icon: <Beaker />, color: 'text-gold' },
+      { name: 'JUnit', icon: <Beaker />, color: 'text-gold', proficiency: 'Initié' },
       { name: 'Tests unitaires', icon: <Microscope />, color: 'text-gold', proficiency: 'Avancé' },
       { name: 'Tests d\'intégration', icon: <Link2 />, color: 'text-gold', proficiency: 'Avancé' },
-      { name: 'Code Robustness', icon: <Zap />, color: 'text-gold' },
+      { name: 'Code Robustness', icon: <Zap />, color: 'text-gold', proficiency: 'Initié' },
       { name: 'Debugging', icon: <Bug />, color: 'text-gold', proficiency: 'Expert' },
     ],
   },
@@ -75,7 +75,7 @@ const skillPillars: SkillPillar[] = [
       { name: 'Linux', icon: <SiLinux />, color: 'text-gold', proficiency: 'Initié' },
       { name: 'Docker', icon: <SiDocker />, color: 'text-gold', proficiency: 'Initié' },
       { name: 'CI/CD', icon: <ArrowUp />, color: 'text-gold', proficiency: 'Initié' },
-      { name: 'Administration système', icon: <Monitor />, color: 'text-gold' },
+      { name: 'Administration système', icon: <Monitor />, color: 'text-gold', proficiency: 'Initié' },
     ],
   },
   {
