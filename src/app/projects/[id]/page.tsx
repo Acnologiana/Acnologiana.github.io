@@ -176,7 +176,7 @@ export default function ProjectDetail() {
               {project.team && (
                 <div>
                   <p className="text-gold font-semibold">Équipe</p>
-                  <p>{project.team}</p>
+                  <p className="whitespace-pre-wrap">{project.team}</p>
                 </div>
               )}
             </div>
