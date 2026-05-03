@@ -27,15 +27,26 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Push to gh-pages
+      - name: Deploy to gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout --orphan gh-pages
+          
+          # Prepare deployment
+          mkdir -p deploy-temp
+          cp -r out/* deploy-temp/
+          
+          # Create orphan branch
+          git checkout --orphan gh-pages-temp
           git rm -rf .
-          cp -r out/* .
+          
+          # Copy only the built files
+          cp -r deploy-temp/* .
+          rm -rf deploy-temp
+          
+          # Commit and push
           git add .
           git commit -m "Deploy portfolio" || true
-          git push -u origin gh-pages --force
+          git push -u origin gh-pages-temp:gh-pages --force
