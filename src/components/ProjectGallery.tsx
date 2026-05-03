@@ -33,7 +33,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
     <div className="w-full mb-16">
       {/* Main media display with description */}
       <div className="relative mb-4 bg-black rounded-none border border-border-dark overflow-hidden group">
-        <div className={`flex gap-6 md:gap-8 p-6 md:p-8 ${project.id === 1 ? 'flex-col' : 'flex-col md:flex-row'}`}>
+        <div className={`flex gap-6 md:gap-8 p-6 md:p-8 ${[1, 3].includes(project.id) ? 'flex-col' : 'flex-col md:flex-row'}`}>
           {/* Image/Video Section */}
           <div className="flex-1 flex justify-center items-center bg-black rounded-none border border-border-dark/50 overflow-hidden">
             <AnimatePresence mode="wait">
@@ -44,7 +44,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
                 className={`relative h-auto bg-black flex items-center justify-center py-8 group/media ${
-                  project.id === 1 ? 'w-full max-h-[800px]' : 'w-full max-w-sm max-h-[600px]'
+                  [1, 3].includes(project.id) ? 'w-full max-h-[800px]' : 'w-full max-w-sm max-h-[600px]'
                 }`}
               >
                 {currentMedia.type === 'image' ? (
@@ -52,7 +52,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                     src={currentMedia.url}
                     alt={currentMedia.title || 'Project media'}
                     className={`h-auto object-contain ${
-                      project.id === 1 ? 'w-full max-h-[800px]' : 'w-auto max-h-[600px]'
+                      [1, 3].includes(project.id) ? 'w-full max-h-[800px]' : 'w-auto max-h-[600px]'
                     }`}
                   />
                 ) : (
@@ -60,7 +60,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                     src={currentMedia.url}
                     controls
                     className={`h-auto object-contain ${
-                      project.id === 1 ? 'w-full max-h-[800px]' : 'w-auto max-h-[600px]'
+                      [1, 3].includes(project.id) ? 'w-full max-h-[800px]' : 'w-auto max-h-[600px]'
                     }`}
                     poster={currentMedia.thumbnail}
                   />

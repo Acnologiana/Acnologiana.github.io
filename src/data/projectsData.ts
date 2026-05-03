@@ -192,12 +192,11 @@ export const projectsData: ProjectDetail[] = [
     date: '2025-2026',
     mascotteUrl: '/ScreenProjet/HERA/mascotte_large.png',
     media: [
-      { type: 'image', url: '/projects/hera-login.jpg', title: 'Authentification', description: 'Interface de connexion sécurisée avec email/mot de passe pour accès à l\'éditeur admin.' },
-      { type: 'image', url: '/projects/hera-projects.jpg', title: 'Gestion des projets', description: 'Vue d\'ensemble des projets AR créés avec aperçu, statut de publication et actions rapides.' },
-      { type: 'image', url: '/projects/hera-editor.jpg', title: 'Environnement d\'édition', description: 'Interface d\'édition 3D avec scène centrale, arborescence des objets et panneau d\'outils.' },
-      { type: 'image', url: '/projects/hera-tools.jpg', title: 'Panneau de contrôle 3D', description: 'Contrôles de position, rotation et échelle permettant manipulation précise des éléments en scène.' },
-      { type: 'image', url: '/projects/hera-assets.jpg', title: 'Bibliothèque de ressources', description: 'Interface de gestion des fichiers 3D avec upload, organisation et aperçu des assets disponibles.' },
-      { type: 'image', url: '/projects/hera-mobile.jpg', title: 'Expérience augmentée', description: 'Rendu WebXR sur appareil mobile affichant la scène 3D intégrée dans l\'environnement réel.' },
+      { type: 'image', url: '/ScreenProjet/HERA/listeprojet.png', title: 'Gestion des projets', description: 'Vue d\'ensemble des projets AR créés avec affichage de la liste, statut de publication et actions rapides pour créer, modifier ou supprimer des projets.' },
+      { type: 'image', url: '/ScreenProjet/HERA/detailprojet.png', title: 'Détails du projet', description: 'Interface de configuration du projet avec métadonnées, paramètres de traçage utilisateur et options de publication pour les expériences AR.' },
+      { type: 'image', url: '/ScreenProjet/HERA/detailscene.png', title: 'Détails de la scène', description: 'Panneau de configuration détaillé d\'une scène 3D avec gestion des objets, animations, interactions et éléments interactifs pour l\'expérience augmentée.' },
+      { type: 'image', url: '/ScreenProjet/HERA/adminpanel.png', title: 'Panneau d\'administration', description: 'Interface d\'administration complète permettant la gestion des utilisateurs, contrôle du traçage, configuration des popups et activation/désactivation de fonctionnalités.' },
+      { type: 'image', url: '/ScreenProjet/HERA/sceneAR.png', title: 'Expérience augmentée mobile', description: 'Rendu WebXR sur appareil mobile montrant la scène 3D intégrée en temps réel dans l\'environnement réel avec interactions utilisateur.' },
     ],
   },
   {
