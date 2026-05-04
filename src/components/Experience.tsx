@@ -16,10 +16,15 @@ interface TimelineEvent {
 
 const events: TimelineEvent[] = [
   {
-    year: '2023',
+    year: '2019-2023',
     title: 'Baccalauréat Général',
-    organization: 'Lycée',
-    description: 'Spécialités Mathématiques & Informatique — Mention Bien',
+    organization: 'Lycée Aiguerande, Belleville',
+    description: 'Spécialités Mathématiques & Informatique',
+    details: [
+      'Formation générale en sciences et technologie avec approfondissement en mathématiques et informatique',
+      'Initiation en programmation, algorithmes et pensée computationnelle',
+      'Mention Bien au baccalauréat',
+    ],
     type: 'education',
     icon: <IoSchool className="text-2xl" />,
   },

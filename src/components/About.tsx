@@ -39,7 +39,7 @@ export default function About() {
           className="glass rounded-none p-8 md:p-12 mb-8 space-y-6 border border-border-dark"
         >
           <p className="text-lg text-bone leading-relaxed text-justify">
-            Je suis développeur, actuellement en 3<sup>e</sup> année de BUT Informatique à l'IUT Lyon 1.
+            Je suis développeur, actuellement en 3<sup>e</sup> année de BUT Informatique à l'IUT Lyon 1. Admis à <span className="text-gold font-semibold">CPE Lyon</span> pour mon cycle ingénieur en <span className="text-gold font-semibold">Informatique et Réseaux de Communication</span>, je suis à la recherche d'une <span className="text-gold font-semibold">alternance de 3 ans</span> pour poursuivre ma formation en continu.
           </p>
 
           <p className="text-lg text-bone leading-relaxed text-justify">
@@ -51,7 +51,7 @@ export default function About() {
           </p>
 
           <p className="text-lg text-bone leading-relaxed text-justify">
-            Aujourd'hui, je suis admis à <span className="text-gold font-semibold">CPE Lyon</span> (sous réserve de trouver une alternance) et je souhaite évoluer vers des domaines comme l'intelligence artificielle et la robotique. J'ai envie d'aller plus loin que le développement pur, et de participer à la conception de systèmes capables d'interagir avec le réel.
+            Je souhaite évoluer vers des domaines comme l'intelligence artificielle et la robotique. J'ai envie d'aller plus loin que le développement pur, et de participer à la conception de systèmes capables d'interagir avec le réel.
           </p>
         </motion.div>
 

@@ -87,7 +87,8 @@ export default function Hero() {
           </motion.a>
 
           <motion.a
-            href="/cv.pdf"
+            href="/CV/CVClementLachize.pdf"
+            download="CVClementLachize.pdf"
             whileHover={{ scale: 1.05, y: -4 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 border-2 border-gold rounded-none font-semibold text-gold hover:bg-gold hover:text-void transition-all"
