@@ -60,7 +60,7 @@ export default function Hero() {
           variants={itemVariants}
           className="text-xl md:text-2xl text-bone mb-4"
         >
-          Développeur Informatique & Futur Ingénieur IA/Robotique
+          Développeur Informatique & Futur Ingénieur Informatique et Réseaux de Communication
         </motion.p>
 
         {/* Tagline */}

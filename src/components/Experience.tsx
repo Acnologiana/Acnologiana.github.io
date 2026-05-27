@@ -12,7 +12,7 @@ interface TimelineEvent {
   type: 'education' | 'experience';
   icon: React.ReactNode;
   accent?: string;
-}
+} 
 
 const events: TimelineEvent[] = [
   {
