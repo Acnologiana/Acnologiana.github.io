@@ -12,6 +12,7 @@ export default function About() {
       },
     },
   };
+  
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },

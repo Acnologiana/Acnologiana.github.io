@@ -10,7 +10,7 @@ interface TimelineEvent {
   description: string;
   details?: string[];
   type: 'education' | 'experience';
-  icon: React.ReactNode;
+  icon: React.ReactNode;  
   accent?: string;
 } 
 
@@ -67,7 +67,7 @@ const events: TimelineEvent[] = [
     description:
       'Développement d\'applications mobiles Bon\'App Petit et Ropach Mobile',
     details: [
-      'Alternance école/entreprise : 2 semaines en entreprise, 2 semaine à l\'université puis 5 mois en entreprise d\'avril a septembre.',
+      'Alternance école/entreprise : 2 semainbrave es en entreprise, 2 semaine à l\'université puis 5 mois en entreprise d\'avril a septembre.',
       'Reprise et maintenance de projets existants : Refactorisation du code et ajout de nouvelles fonctionnalités',
       'Architecture MVVM avec gestion d\'état (Provider Pattern)',
       'API REST (HTTP/JSON) et intégration données en temps réel',
@@ -88,7 +88,7 @@ export default function Experience() {
       transition: {
         staggerChildren: 0.15,
       },
-    },
+    }, 
   };
 
   const itemVariants = {
